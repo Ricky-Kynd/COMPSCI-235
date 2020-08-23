@@ -33,4 +33,8 @@ def create_app():
     def shows_news():
         return "Today’s news is ..."
 
+    @app.route('/signin', methods=['GET'])
+    def shows_signin_page():
+        return "Sign in here..."
+
     return app

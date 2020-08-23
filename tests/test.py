@@ -2,9 +2,10 @@ from flask import url_for, request
 from hello import create_app
 
 
-app = create_app()
+app = create_app() #main entry point
 
 
+#@ tests urls for views
 def print_urls_for_views():
     with app.test_request_context():
         print('URL for index view:               ', url_for('index'))
@@ -13,7 +14,7 @@ def print_urls_for_views():
         print('URL for show_post view:           ', url_for('show_post', post_id=6))
         print('URL for show_subpath view:        ', url_for('show_subpath', subpath='abc/def'))
 
-
+#@ tests if request info is receievedf
 def print_request_info():
     with app.test_request_context('hello?name=Ed', method='GET'):
         print('Request path:                     ', request.path)
@@ -21,5 +22,6 @@ def print_request_info():
         print('Request query parameter for name: ', request.args.get('name'))
 
 
+# call methods
 print_urls_for_views()
 print_request_info()
